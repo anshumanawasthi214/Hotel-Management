@@ -16,5 +16,5 @@ public class RoomDto {
 	private BigDecimal roomPrice;
 	private String roomPhotoUrl;
 	private String roomDescription;
-	private List<BookingsDto> booking ;
+	private List<BookingsDto> bookings ;
 }
