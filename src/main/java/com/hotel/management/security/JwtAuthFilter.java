@@ -11,7 +11,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.hotel.management.service.CustomUserDetailsService;
+import com.hotel.management.service.impl.CustomUserDetailsService;
 import com.hotel.management.utils.JWTUtils;
 
 import jakarta.servlet.FilterChain;
