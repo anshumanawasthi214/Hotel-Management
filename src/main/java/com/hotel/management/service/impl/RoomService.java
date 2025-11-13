@@ -1,6 +1,7 @@
 package com.hotel.management.service.impl;
 
 import java.math.BigDecimal;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -13,7 +14,6 @@ import com.hotel.management.dto.Response;
 import com.hotel.management.dto.RoomDto;
 import com.hotel.management.entity.Room;
 import com.hotel.management.exception.OurException;
-import com.hotel.management.repository.BookingsRepository;
 import com.hotel.management.repository.RoomRepository;
 import com.hotel.management.service.interfaces.IRoomService;
 import com.hotel.management.utils.Utils;
@@ -24,7 +24,6 @@ public class RoomService implements IRoomService {
 	
 	@Autowired private RoomRepository roomRepo;
 	
-	@Autowired private BookingsRepository bookingRepo;
 
 	@Autowired private AwsS3Service awsService;
 
@@ -90,9 +89,9 @@ public class RoomService implements IRoomService {
 			response.setStatusCode(200);
 			response.setMessage("Success");
 			
-		}catch(Exception e) {
-			response.setStatusCode(500);
-			response.setMessage("Error occured in saving Room... "+e.getMessage());			
+		}catch(OurException e) {
+			response.setStatusCode(404);
+			response.setMessage(e.getMessage());			
 
 		}
 		return response;
@@ -102,26 +101,85 @@ public class RoomService implements IRoomService {
 	@Override
 	public Response updateRoom(Long roomId, String roomType, BigDecimal roomPrice, String description,
 			MultipartFile photo) {
-		// TODO Auto-generated method stub
-		return null;
+		Response response=new Response();
+		try {
+			String imgUrl=null;
+			if(photo!=null && !photo.isEmpty()) {
+				imgUrl=awsService.saveImageToS3(photo);
+			}
+			Room room =roomRepo.findById(roomId).orElseThrow(()->new OurException("Room Not Found"));
+			
+			if(roomType!=null)room.setRoomType(roomType);
+			if(roomPrice!=null)room.setRoomPrice(roomPrice);
+			if(description!=null)room.setRoomDescription(description);
+			if(imgUrl!=null)room.setRoomPhotoUrl(imgUrl);
+			
+			Room updatedRoom=roomRepo.save(room);
+			RoomDto roomDto=Utils.mapRoomEntityToRoomDTO(updatedRoom);
+			response.setStatusCode(200);
+			response.setMessage("Success");
+			response.setRoom(roomDto);
+			
+		}catch(Exception e) {
+			response.setStatusCode(500);
+			response.setMessage("Error occured in saving Room... "+e.getMessage());			
+
+		}
+		return response;
 	}
 
 	@Override
 	public Response getRoomById(Long roomId) {
-		// TODO Auto-generated method stub
-		return null;
+		Response response=new Response();
+		try {
+			Room room=roomRepo.findById(roomId).orElseThrow(()->new OurException("Room Not Found"));
+			RoomDto roomDto=Utils.mapRoomEntityToRoomDTOPlusBookings(room);
+			response.setStatusCode(200);
+			response.setMessage("Success");
+			response.setRoom(roomDto);
+			
+		}catch(OurException e) {
+			response.setStatusCode(404);
+			response.setMessage(e.getMessage());			
+
+		}
+		return response;
 	}
 
 	@Override
 	public Response getAvailableRoomsByDateAndType(LocalDate checkInDate, LocalDate checkOutDate, String roomType) {
-		// TODO Auto-generated method stub
-		return null;
+		Response response=new Response();
+		try {
+			List<Room> availableRoom=roomRepo.findAvailableRoomsByDatesAndTypes(checkInDate,checkOutDate,roomType);
+			List<RoomDto> roomDto=Utils.mapRoomListEntityToRoomListDTO(availableRoom);
+			response.setStatusCode(200);
+			response.setMessage("Successfull");
+			response.setRoomList(roomDto);
+			
+		}catch(OurException e) {
+			response.setStatusCode(404);
+			response.setMessage(e.getMessage());			
+
+		}
+		return response;
 	}
 
 	@Override
 	public Response getAvailableRooms() {
-		// TODO Auto-generated method stub
-		return null;
+		Response response=new Response();
+		try {
+			List<Room> availableRoom=roomRepo.getAllAvailableRooms();
+			List<RoomDto> roomDto=Utils.mapRoomListEntityToRoomListDTO(availableRoom);
+			response.setStatusCode(200);
+			response.setMessage("Successfull");
+			response.setRoomList(roomDto);
+			
+		}catch(Exception e) {
+			response.setStatusCode(500);
+			response.setMessage(e.getMessage());			
+
+		}
+		return response;
 	}
 
 }

@@ -4,6 +4,7 @@ import java.io.InputStream;
 
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -13,7 +14,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.hotel.management.exception.OurException;
 
-
+@Service
 public class AwsS3Service {
 
 	private final String bucketName="anshuman-hotel-images";

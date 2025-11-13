@@ -1,6 +1,7 @@
 package com.hotel.management.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -11,7 +12,7 @@ public interface BookingsRepository extends JpaRepository<Bookings, Long> {
 	
 	List<Bookings> findByRoomId(Long roomId);
 	
-	List<Bookings> findBybookingConfirmationCode(String confirmationCode);
+	Optional<Bookings> findBybookingConfirmationCode(String confirmationCode);
 
 	List<Bookings> findByUserId(Long userId);
 
