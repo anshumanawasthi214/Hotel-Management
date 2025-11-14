@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import com.hotel.management.dto.BookingsDto;
 import com.hotel.management.dto.Response;
@@ -18,6 +19,7 @@ import com.hotel.management.repository.UserRepository;
 import com.hotel.management.service.interfaces.IBookingService;
 import com.hotel.management.utils.Utils;
 
+@Service
 public class BookingService implements IBookingService {
 	
 	@Autowired private BookingsRepository bookingRepo;
@@ -100,7 +102,7 @@ Response response=new Response();
 			Bookings booking=bookingRepo.findBybookingConfirmationCode(confirmationCode).orElseThrow(()->new OurException("No bookings found with this confirmation Code"));
 			response.setStatusCode(200);
 			response.setMessage("Successfull");
-			BookingsDto bookingDto=Utils.mapBookingEntityToBookingDTO(booking);
+			BookingsDto bookingDto=Utils.mapBookingEntityToBookingDTOPlusBookedRooms(booking,true);
 			response.setBooking(bookingDto);
 			
 		}catch(OurException e) {

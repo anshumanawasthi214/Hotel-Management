@@ -2,18 +2,22 @@ package com.hotel.management.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import lombok.Data;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response {
  
 	private int statusCode;
 	private String message;
+	
 	private String token;
 	private String role;
 	private String expirationTime;
-	private int totalNoOfGuest;
 	private String bookingConfirmationCode;
+	
 	private BookingsDto booking;
 	private UserDto user;
 	private RoomDto room;

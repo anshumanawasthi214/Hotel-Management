@@ -114,6 +114,8 @@ public class UserService implements IUserService {
 		try {
 			User user=userRepo.findById(Long.valueOf(userId)).orElseThrow(()->new OurException("User not found"));
 			UserDto userDto=Utils.mapUserEntityToUserDTOPlusUserBookingsAndRoom(user);
+			response.setStatusCode(200);
+			response.setMessage("Successfull");
 			response.setUser(userDto);
 			
 		}catch(OurException e) {
@@ -134,6 +136,7 @@ public class UserService implements IUserService {
 		try {
 			userRepo.findById(Long.valueOf(userId)).orElseThrow(()->new OurException("User not found"));
 			userRepo.deleteById(Long.valueOf(userId));
+			response.setStatusCode(200);
 			response.setMessage("Successfull");
 			
 		}catch(OurException e) {
