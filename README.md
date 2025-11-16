@@ -1,9 +1,9 @@
-Dream Hotel – Full-Stack Hotel Booking & Management Platform
+#Dream Hotel – Full-Stack Hotel Booking & Management Platform
 
 Dream Hotel is a full-stack web application for hotel booking and management. It provides a seamless experience for users to browse and book rooms while giving admins full control over hotel operations. The project demonstrates full-stack development using Spring Boot, MySQL, JWT authentication, AWS S3, and a modern React.js frontend.
 
-🌟 Features
-User Features
+#🌟 Features
+##User Features
 
 ✅ Sign up & login with secure authentication (JWT & Spring Security)
 
@@ -21,7 +21,7 @@ User Features
 
 ✅ Find existing bookings using confirmation code
 
-Admin Features
+##Admin Features
 
 🔑 Admin login with secure credentials
 
@@ -31,12 +31,12 @@ Admin Features
 
 📊 Admin dashboard to monitor hotel operations
 
-📽 Demo Video
+##📽 Demo Video
 
 A comprehensive tutorial showcasing the full project (backend & frontend) and architectural design is available here:
 [Watch Demo Video](Demo Video Link)
 
-🛠 Tech Stack
+##🛠 Tech Stack
 
 Backend:
 
@@ -48,7 +48,7 @@ Lombok for boilerplate reduction
 
 Validation for secure and consistent data
 
-Frontend:
+## Frontend:
 
 React.js (components, services, protected routes)
 
