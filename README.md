@@ -112,13 +112,22 @@ Backend: Spring Boot in Spring Tool Suite (STS)
 
 ## 🔧 Project Structure
 hotel-management/
-├── backend/          # Spring Boot backend
+|
+├── backend/  # Spring Boot backend
+|   |
 │   ├── src/
+|   |
 │   ├── pom.xml
+|   |
 ├── frontend/         # React.js frontend
+|   |
 │   ├── src/
+|   |
 │   ├── package.json
+|   |
+|
 ├── README.md
+
 
 ## 🏗 Technical Architecture
 ### Backend
