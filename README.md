@@ -1,9 +1,9 @@
-#Dream Hotel – Full-Stack Hotel Booking & Management Platform
+# Dream Hotel – Full-Stack Hotel Booking & Management Platform
 
 Dream Hotel is a full-stack web application for hotel booking and management. It provides a seamless experience for users to browse and book rooms while giving admins full control over hotel operations. The project demonstrates full-stack development using Spring Boot, MySQL, JWT authentication, AWS S3, and a modern React.js frontend.
 
-#🌟 Features
-##User Features
+# 🌟 Features
+## User Features
 
 ✅ Sign up & login with secure authentication (JWT & Spring Security)
 
@@ -21,7 +21,7 @@ Dream Hotel is a full-stack web application for hotel booking and management. It
 
 ✅ Find existing bookings using confirmation code
 
-##Admin Features
+## Admin Features
 
 🔑 Admin login with secure credentials
 
@@ -31,14 +31,14 @@ Dream Hotel is a full-stack web application for hotel booking and management. It
 
 📊 Admin dashboard to monitor hotel operations
 
-##📽 Demo Video
+## 📽 Demo Video
 
 A comprehensive tutorial showcasing the full project (backend & frontend) and architectural design is available here:
 [Watch Demo Video](Demo Video Link)
 
-##🛠 Tech Stack
+## 🛠 Tech Stack
 
-Backend:
+### Backend:
 
 Spring Boot, Spring Security, JWT, MySQL
 
@@ -48,7 +48,7 @@ Lombok for boilerplate reduction
 
 Validation for secure and consistent data
 
-## Frontend:
+### Frontend:
 
 React.js (components, services, protected routes)
 
@@ -62,12 +62,12 @@ Frontend: VS Code
 
 Backend: Spring Tool Suite (STS)
 
-⚙️ Getting Started
-1. Clone the Repository
+## ⚙️ Getting Started
+### 1. Clone the Repository
 git clone https://github.com/yourusername/hotel-management.git
 cd hotel-management
 
-2. Backend Setup
+### 2. Backend Setup
 
 Open the backend folder in Spring Tool Suite (STS).
 
@@ -82,7 +82,7 @@ aws.region=YOUR_REGION
 
 Run the Spring Boot application (DreamHotelApplication.java).
 
-3. Frontend Setup
+### 3. Frontend Setup
 
 Open the frontend folder in VS Code.
 
@@ -98,19 +98,19 @@ npm start
 
 Open your browser and go to: http://localhost:3000
 
-⚠️ Important Notes
+## ⚠️ Important Notes
 
 AWS Keys: Dummy keys are included in the repo. You must replace them with your own for AWS S3 integration.
 
 Clean Repository: Only required files for frontend and backend are uploaded. node_modules and other unnecessary files are excluded.
 
-Development Environment:
+### Development Environment:
 
 Frontend: React.js in VS Code
 
 Backend: Spring Boot in Spring Tool Suite (STS)
 
-🔧 Project Structure
+## 🔧 Project Structure
 hotel-management/
 ├── backend/          # Spring Boot backend
 │   ├── src/
@@ -120,8 +120,8 @@ hotel-management/
 │   ├── package.json
 ├── README.md
 
-🏗 Technical Architecture
-Backend
+## 🏗 Technical Architecture
+### Backend
 
 Entities/Models: User, Room, Booking with proper relationships
 
@@ -135,7 +135,7 @@ AWS S3 Integration: Store room images in S3 and reference URLs in the database
 
 Services & Controllers: Handle business logic and REST API endpoints
 
-Frontend
+### Frontend
 
 Organized React components and services
 
@@ -145,7 +145,7 @@ Route guards for authentication
 
 Responsive pages: Home, Room Search & Results, Booking, Profile, Admin Dashboard, Manage Rooms & Bookings
 
-📌 Future Improvements
+###📌 Future Improvements
 
 Integrate payment gateway
 
@@ -155,6 +155,6 @@ Implement email notifications for bookings
 
 Enhance admin analytics dashboard
 
-🤝 Contributing
+### 🤝 Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
