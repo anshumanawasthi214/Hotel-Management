@@ -27,6 +27,10 @@ public class BookingController {
 	public ResponseEntity<Response> saveBookings(@PathVariable Long roomId,
 												 @PathVariable Long userId,
 												 @RequestBody Bookings bookingRequest){
+		System.out.println(bookingRequest.getNumberOfAdults());
+		System.out.println(bookingRequest.getNumberOfChildren());
+		
+
 		
 		Response response=bookingService.saveBookings(roomId, userId, bookingRequest);
 		return ResponseEntity.status(response.getStatusCode()).body(response);
