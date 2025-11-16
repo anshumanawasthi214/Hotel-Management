@@ -64,7 +64,7 @@ Backend: Spring Tool Suite (STS)
 
 ## ⚙️ Getting Started
 ### 1. Clone the Repository
-git clone https://github.com/yourusername/hotel-management.git
+git clone https://github.com/anshumanawasthi214/hotel-management.git
 cd hotel-management
 
 ### 2. Backend Setup
