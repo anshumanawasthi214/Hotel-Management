@@ -34,7 +34,7 @@ Dream Hotel is a full-stack web application for hotel booking and management. It
 ## 📽 Demo Video
 
 A comprehensive tutorial showcasing the full project (backend & frontend) and architectural design is available here:
-[Watch Demo Video](Demo Video Link)
+[Watch Demo] ( Videohttps://www.linkedin.com/posts/anshumanawasthi214_fullstackdevelopment-springboot-reactjs-activity-7395790722781646848-zidx?utm_source=share&utm_medium=member_android&rcm=ACoAAE1czH4B9B3JRUFOPDkV4DptUuxgPoLtois )
 
 ## 🛠 Tech Stack
 
